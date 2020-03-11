@@ -1,0 +1,41 @@
+{
+  "name": "comeon-in",
+  "version": "1.0.0",
+  "description": "A registration and login flow",
+  "main": "index.js",
+  "proxy": "http://localhost:4000",
+  "scripts": {
+    "test": "test",
+    "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
+    "start:server": "cd server && npm start",
+    "start:client": "webpack-dev-server --open --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aimeedyki/comeon-in.git"
+  },
+  "author": "Amarachi Akuwudike",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aimeedyki/comeon-in/issues"
+  },
+  "homepage": "https://github.com/aimeedyki/comeon-in#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "concurrently": "^5.1.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "path": "^0.12.7",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  }
+}
