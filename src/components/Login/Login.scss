@@ -1,0 +1,23 @@
+@import '../common/theme.scss';
+
+.login {
+  visibility: visible;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 22rem;
+    width: 18rem;
+
+    &__error-text {
+      color: map-get($colors, error);
+    }
+  }
+}

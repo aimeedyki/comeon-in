@@ -1,5 +1,4 @@
 const jsonServer = require("json-server");
-const path = require('path');
 const server = jsonServer.create();
 const middlewares = jsonServer.defaults();
 
@@ -93,13 +92,37 @@ const authenticate = (req, res) => {
   }
 };
 
+const playerAttributes = (req) => {
+  let overrides = {}
+  const { email, acceptTerms } = req.body
+  if (email) {
+    overrides = {
+      showTermsAndCondition: true,
+      showEmailPhoneScreen: false
+    }
+  }
+  
+  if (acceptTerms) {
+    overrides = {
+      showTermsAndCondition: false,
+      showEmailPhoneScreen: false,
+      showWelcomeScreen: true
+    }
+  }
+
+  return overrides
+}
+
 const updatePlayer = (req, res) => {
   const id = req.body.id;
   const playerIndex = players.findIndex(player => player.id === id);
   if (playerIndex > -1) {
-    const newPlayer = { ...players[playerIndex], ...req.body };
+    let newPlayer = { ...players[playerIndex], ...req.body };
+    // Adding the override to let user navigate further
+    const overrides = playerAttributes(req)
+    newPlayer = {...newPlayer, ...overrides}
     players[playerIndex] = newPlayer;
-    const response = { ...newPlayer };
+    const response = {...newPlayer};
     delete response.password;
     res.status(200).json({
       status: "SUCCESS",
@@ -121,8 +144,9 @@ server.use((req, res, next) => {
     if (req.path === "/authenticate") {
       return authenticate(req, res);
     } else if (req.path === "/logout") {
-      var username = req.body.username;
-      if (username in players) {
+      const user = players.filter(player => player.id === req.body.id)[0]
+
+      if (user) {
         res.status(200).json({
           status: "SUCCESS"
         });
@@ -143,6 +167,6 @@ server.use((req, res, next) => {
   next();
 });
 
-server.listen(4000, () => {
+server.listen(3001, () => {
   console.log("JSON Server is running");
 });

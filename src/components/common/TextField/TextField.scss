@@ -1,0 +1,69 @@
+@import '../theme.scss';
+
+.text-field {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  padding: 1rem 0 0.5rem;
+  position: relative;
+
+  &__label {
+    font-size: 1rem;
+    font-weight: 300;
+    color: map-get($colors, light);
+    margin-bottom: 0.25rem;
+  }
+
+  &__border {
+    position: absolute;
+    width: 100%;
+    border-bottom: 0.08rem solid map-get($colors, light);
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__input {
+    width: 100%;
+    height: 2rem;
+    font-size: 1rem;
+    font-weight: 100;
+    line-height: 1rem;
+    color: map-get($colors, light-gray);
+    background: transparent;
+    outline: none;
+    border: none;
+    padding-left: 1rem;
+
+    &:focus, &:active {
+      & + .text-field__border {
+        border-bottom-color: map-get($colors, primary);
+      }
+    }
+  }
+
+  &__error-description {
+    position: absolute;
+    bottom: -1.5rem;
+    z-index: 0;
+    width: 100%;
+    padding: 0.5rem;
+    color: map-get($colors, error);
+    font-size: 1em;
+    font-weight: 500;
+  }
+
+  &--error {
+    & .text-field__border, & .text-field__input:focus, & .text-field__input:active {
+      border-bottom-color: map-get($colors, error);
+
+      & + .text-field__border {
+        border-bottom-color: map-get($colors, error);
+      }
+    }
+  }
+}
