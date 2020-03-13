@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "A registration and login flow",
   "main": "index.js",
-  "proxy": "http://localhost:3001",
   "scripts": {
     "test": "test",
     "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
@@ -46,9 +45,11 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "react-dom": "^16.13.0",
+    "validator": "^12.2.0"
   }
 }

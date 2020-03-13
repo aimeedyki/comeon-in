@@ -1,3 +1,5 @@
+@import '../common/theme.scss';
+
 .login {
   visibility: visible;
   display:flex;
@@ -13,5 +15,9 @@
     align-items: center;
     height: 22rem;
     width: 18rem;
+
+    &__error-text {
+      color: map-get($colors, error);
+    }
   }
 }

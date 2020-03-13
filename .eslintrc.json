@@ -10,6 +10,8 @@
     "react-hooks"
   ],
   "rules": {
+    "semi": [1, "always"],
+    "multiline-ternary": ["error", "always"],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
   }

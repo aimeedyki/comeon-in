@@ -1,14 +1,16 @@
 import React from "react";
 
 import Login from './Login';
+import { AuthenticationContextProvider } from '../context/AuthenticationContext';
 
 import './App.scss';
-import './common/common-styles.scss';
 
 const App = () =>
   <div className="app">
     <div className="app__wrapper">
-      <Login />
+      <AuthenticationContextProvider>
+        <Login />
+      </AuthenticationContextProvider>
     </div>
   </div>;
 
