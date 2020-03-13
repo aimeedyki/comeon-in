@@ -1,3 +1,18 @@
-.co-button {
-  border: 0.5rem green;
+@import '../theme.scss';
+
+.button {
+  height: 3.5rem;
+  width: 100%;
+  background: transparent;
+  border: 0.1rem solid map-get($colors, primary);
+  border-radius: 3rem;
+  outline: none;
+  color: map-get($colors, light);
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:hover {
+    background: map-get($colors, primary);
+  }
 }

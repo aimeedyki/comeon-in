@@ -1,0 +1,16 @@
+@import '../theme.scss';
+
+.card {
+  visibility: hidden;
+  
+  @media screen and (min-width: 768px){
+    visibility: visible;
+    position: relative;
+    width: 30rem;
+    height: 35rem;
+    background-color: map-get($colors, dark);
+    box-shadow: 0 0.3rem 0.5rem 0 map-get($colors, dark-background);
+    transition: 0.3s;
+    border-radius: 0.3rem;
+  }
+}

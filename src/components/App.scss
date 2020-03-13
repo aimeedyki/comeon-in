@@ -8,11 +8,14 @@ body {
 .app {
   height: 100vh;
   width: 100vw;
-  background-color: map-get($colors, dark-gradient);
+  background-color: map-get($colors, dark-background);
   background-image: $background-gradient;
   color: map-get($colors, light );
 
   &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
   }
 }
