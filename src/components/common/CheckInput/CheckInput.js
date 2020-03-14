@@ -6,7 +6,7 @@ import './CheckInput.scss';
 const CheckedInput = ({checked, label, onInputChange, ...restProps}) => (
   <label className="check-input">
     <input
-    className="checkbox"
+      className="checkbox"
       name="isGoing"
       type="checkbox"
       checked={checked}

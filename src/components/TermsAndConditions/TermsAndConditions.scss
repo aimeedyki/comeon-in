@@ -1,0 +1,43 @@
+@import '../common/theme.scss';
+
+.terms {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  overflow-y:scroll; 
+  min-height: auto;
+  background-color: map-get($colors, dark);
+  color: map-get($colors, light);
+  margin-top: 6rem;
+  padding: 0 1rem;
+  font-size: 0.8rem;
+
+  &__icon {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  &__heading {
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+
+  &__heading-description {
+    margin-top: 0.5rem;
+    font-size: 0.7rem;
+    color: map-get($colors, light-gray);
+    text-align: center;
+  }
+
+  &__version {
+    align-self: flex-start;
+    margin: 0.5rem 0;
+  }
+
+  &__sub-heading {
+    align-self: flex-start;
+    font-size: 1rem;
+  }
+}
