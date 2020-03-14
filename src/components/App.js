@@ -8,6 +8,7 @@ import Navbar from './Navbar';
 import Login from './Login';
 import TermsAndConditions from './TermsAndConditions';
 import UserInformation from './UserInformation';
+import Welcome from './Welcome';
 
 import { AuthenticationContextProvider } from '../context/AuthenticationContext';
 import ProtectedRoute from './ProtectedRoute';
@@ -19,6 +20,10 @@ const App = () => (
     <div className="app__wrapper">
       <AuthenticationContextProvider>
         <Switch>
+          <ProtectedRoute path="/welcome">
+            <Navbar />
+            <Welcome />
+          </ProtectedRoute>
           <ProtectedRoute path="/terms">
             <Navbar />
             <TermsAndConditions />

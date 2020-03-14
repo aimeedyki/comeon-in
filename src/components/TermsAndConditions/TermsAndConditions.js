@@ -33,7 +33,7 @@ const TermsAndConditions = () => {
       }).then(response => {
         setUser(response);
         setLoading(false);
-        history.push('/');
+        history.push('/welcome');
       })
         .catch(error => {
           setErrorMessage(error);
@@ -75,11 +75,14 @@ const TermsAndConditions = () => {
           <p className="terms__error-message">
             {errorMessage}
           </p>}
-          <Loader show={loading}>
-            <Button className="terms__footer__button" onClick={handleClick}>
-              Continue
-            </Button>
-          </Loader>
+        <Loader show={loading}>
+          <Button
+            className="terms__footer__button"
+            onClick={handleClick}
+          >
+            Continue
+          </Button>
+        </Loader>
       </div>
     </div>
   );
