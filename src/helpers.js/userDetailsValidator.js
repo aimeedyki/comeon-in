@@ -7,7 +7,7 @@ const userDetailsValidator = (formDetails) => {
     error.email = 'Please provide a valid email';
   }
 
-  if ((/^(\+)([1-9]{3})$/).test(formDetails.countryCode)) {
+  if (!(/^(\+)([1-9]{3})$/).test(formDetails.countryCode)) {
     error.countryCode = 'e.g +47';
   }
 

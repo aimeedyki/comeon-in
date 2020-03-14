@@ -64,7 +64,7 @@ const UserInformation = () => {
       }).then(response => {
         setUser(response);
         setLoading(false);
-        history.push('/');
+        history.push('/terms');
       })
         .catch(error => {
           console.log('error in submit', error);

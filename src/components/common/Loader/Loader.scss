@@ -18,16 +18,16 @@
 
   &__spinner {
     position: relative;
-    animation: spin 1.4s infinite linear;
+    animation: spin 0.7s infinite linear;
     background: linear-gradient(
       to right,
       map-get($colors, dark-background) 10%,
       map-get($colors, primary) 42%
     );
     border-radius: 50%;
-    font-size: 0.8rem;
-    height: 11rem;
-    width: 11rem;
+    font-size: 0.2rem;
+    height: 2.5rem;
+    width: 2.5rem;
     transform: translateZ(0);
 
     &::before {

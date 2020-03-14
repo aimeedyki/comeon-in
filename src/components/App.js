@@ -19,10 +19,10 @@ const App = () => (
     <div className="app__wrapper">
       <AuthenticationContextProvider>
         <Switch>
-          <Route path="/terms">
+          <ProtectedRoute path="/terms">
             <Navbar />
             <TermsAndConditions />
-          </Route>
+          </ProtectedRoute>
           <ProtectedRoute path="/details">
             <Navbar />
             <UserInformation />
