@@ -1,0 +1,74 @@
+@import '../common/theme.scss';
+
+.terms {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  overflow-y:scroll; 
+  min-height: auto;
+  background-color: map-get($colors, dark);
+  color: map-get($colors, light);
+  margin-top: 4.5rem;
+  padding: 1rem;
+  font-size: 0.8rem;
+
+  &__icon {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  &__heading {
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+
+  &__heading-description {
+    margin-top: 0.5rem;
+    font-size: 0.7rem;
+    color: map-get($colors, light-gray);
+    text-align: center;
+  }
+
+  &__version {
+    align-self: flex-start;
+    margin: 0.5rem 0;
+  }
+
+  &__sub-heading {
+    align-self: flex-start;
+    font-size: 1rem;
+  }
+
+  &__check-input {
+    margin: 1rem 0 4.5rem;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+    padding: 0 2rem 1rem;
+
+    &__button {
+      width: 20.5rem;
+      background-color: map-get($colors, dark);
+    }
+  }
+
+  &__error-message {
+    background-color: map-get($colors, dark);
+    color: map-get($colors, error);
+    margin: 0 0 0.2rem;
+  }
+
+  @media screen and (min-width: 768px){
+    padding: 1rem 9rem;
+    font-size: 0.9rem;
+  }
+}

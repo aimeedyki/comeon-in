@@ -6,7 +6,9 @@ import {
 
 import Navbar from './Navbar';
 import Login from './Login';
+import TermsAndConditions from './TermsAndConditions';
 import UserInformation from './UserInformation';
+
 import { AuthenticationContextProvider } from '../context/AuthenticationContext';
 import ProtectedRoute from './ProtectedRoute';
 
@@ -17,6 +19,10 @@ const App = () => (
     <div className="app__wrapper">
       <AuthenticationContextProvider>
         <Switch>
+          <ProtectedRoute path="/terms">
+            <Navbar />
+            <TermsAndConditions />
+          </ProtectedRoute>
           <ProtectedRoute path="/details">
             <Navbar />
             <UserInformation />
