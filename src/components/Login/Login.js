@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { Button, Card, Loader, Logo, TextField } from '../common';
 import { authenticationValidator } from '../../helpers.js';
@@ -14,12 +15,13 @@ const Login = () => {
   const [errorMessages, setErrorMessages] = useState({ username: '', password: '' });
   const [serverError, setServerError] = useState('');
   const [loading, setLoading] = useState(false);
+  let history = useHistory();
 
   const handleChange = e => {
     const { name, value } = e.target;
 
     setState({ ...state, [name]: value });
-  }
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -39,6 +41,7 @@ const Login = () => {
           setAuthenticationStatus(true);
           setUser(response);
           setLoading(false);
+          history.push('/details');
         })
         .catch(error => {
           setServerError(error);
@@ -47,7 +50,7 @@ const Login = () => {
     } else {
       setErrorMessages(error);
     }
-  }
+  };
 
   return (
     <Card>
@@ -84,7 +87,7 @@ const Login = () => {
         </form>
       </div>
     </Card>
-  )
-}
+  );
+};
 
 export default Login;

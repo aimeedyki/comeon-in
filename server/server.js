@@ -93,13 +93,13 @@ const authenticate = (req, res) => {
 };
 
 const playerAttributes = (req) => {
-  let overrides = {}
-  const { email, acceptTerms } = req.body
+  let overrides = {};
+  const { email, acceptTerms } = req.body;
   if (email) {
     overrides = {
       showTermsAndCondition: true,
       showEmailPhoneScreen: false
-    }
+    };
   }
   
   if (acceptTerms) {
@@ -107,11 +107,11 @@ const playerAttributes = (req) => {
       showTermsAndCondition: false,
       showEmailPhoneScreen: false,
       showWelcomeScreen: true
-    }
+    };
   }
 
-  return overrides
-}
+  return overrides;
+};
 
 const updatePlayer = (req, res) => {
   const id = req.body.id;
@@ -119,8 +119,8 @@ const updatePlayer = (req, res) => {
   if (playerIndex > -1) {
     let newPlayer = { ...players[playerIndex], ...req.body };
     // Adding the override to let user navigate further
-    const overrides = playerAttributes(req)
-    newPlayer = {...newPlayer, ...overrides}
+    const overrides = playerAttributes(req);
+    newPlayer = {...newPlayer, ...overrides};
     players[playerIndex] = newPlayer;
     const response = {...newPlayer};
     delete response.password;
@@ -129,7 +129,7 @@ const updatePlayer = (req, res) => {
       response
     });
   } else {
-    res.status(200).json({
+    res.status(404).json({
       status: "FAILURE",
       response: {
         errorKey: "PLAYER_NOT_FOUND",
@@ -144,7 +144,7 @@ server.use((req, res, next) => {
     if (req.path === "/authenticate") {
       return authenticate(req, res);
     } else if (req.path === "/logout") {
-      const user = players.filter(player => player.id === req.body.id)[0]
+      const user = players.filter(player => player.id === req.body.id)[0];
 
       if (user) {
         res.status(200).json({

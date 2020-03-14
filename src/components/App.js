@@ -1,17 +1,33 @@
 import React from "react";
+import {
+  Switch,
+  Route
+} from "react-router-dom";
 
+import Navbar from './Navbar';
 import Login from './Login';
+import UserInformation from './UserInformation';
 import { AuthenticationContextProvider } from '../context/AuthenticationContext';
+import ProtectedRoute from './ProtectedRoute';
 
 import './App.scss';
 
-const App = () =>
+const App = () => (
   <div className="app">
     <div className="app__wrapper">
       <AuthenticationContextProvider>
-        <Login />
+        <Switch>
+          <ProtectedRoute path="/details">
+            <Navbar />
+            <UserInformation />
+          </ProtectedRoute>
+          <Route path="/">
+            <Login />
+          </Route>
+        </Switch>
       </AuthenticationContextProvider>
     </div>
-  </div>;
+  </div>
+);
 
 export default App;

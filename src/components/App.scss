@@ -10,12 +10,16 @@ body {
   width: 100vw;
   background-color: map-get($colors, dark-background);
   background-image: $background-gradient;
-  color: map-get($colors, light );
 
   &__wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
+  }
+
+  @media screen and (max-width: 768px){
+    background-image: none;
+    background-color: map-get($colors, dark);
   }
 }

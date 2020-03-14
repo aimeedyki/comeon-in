@@ -1,0 +1,27 @@
+@import '../common/theme.scss';
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: map-get($colors, light);
+  width: 100%;
+  position: fixed;
+  top: 0;
+
+  &__logo {
+    font-size: 1rem;
+  }
+
+  &__logout {
+    margin-right: 1rem;
+    color: map-get($colors, dark-background);
+    text-decoration: none;
+    
+
+    &:hover {
+      color: map-get($colors, light);
+      background-color: map-get($colors, primary);
+    }
+  }
+}
