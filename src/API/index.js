@@ -8,3 +8,12 @@ export const authenticate = async (username, password) => {
 
   return data;
 };
+
+export const updateUser = async (params) => {
+  const data = await client.put(
+  '/player',
+    params
+  );
+
+  return data;
+};

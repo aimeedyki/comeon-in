@@ -1,0 +1,11 @@
+.back-button {
+  height: 2rem;
+  width: 2rem;
+  background: none;
+  outline: none;
+
+  &__icon {
+    height: 100%;
+    width: 100%;
+  }
+}

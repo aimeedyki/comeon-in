@@ -9,16 +9,10 @@ const ProtectedRoute = ({ children }) => {
 
   return (
       <Route
-        render={({ location }) =>
-          isAuthenticated ? (
-            children
-          ) : (
-              <Redirect
-                to={{
-                  pathname: "/",
-                  state: { from: location }
-                }}
-              />
+        render={() =>
+          isAuthenticated ?
+            children : (
+              <Redirect to= "/"/>
             )
         }
       />

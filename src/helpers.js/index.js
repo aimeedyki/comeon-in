@@ -1,5 +1,7 @@
 import authenticationValidator from './authenticationValidator';
+import userDetailsValidator from './userDetailsValidator';
 
 export {
-  authenticationValidator
+  authenticationValidator,
+  userDetailsValidator
 };

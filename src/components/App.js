@@ -4,6 +4,7 @@ import {
   Route
 } from "react-router-dom";
 
+import Navbar from './Navbar';
 import Login from './Login';
 import UserInformation from './UserInformation';
 import { AuthenticationContextProvider } from '../context/AuthenticationContext';
@@ -17,6 +18,7 @@ const App = () => (
       <AuthenticationContextProvider>
         <Switch>
           <ProtectedRoute path="/details">
+            <Navbar />
             <UserInformation />
           </ProtectedRoute>
           <Route path="/">

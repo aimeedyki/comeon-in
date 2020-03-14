@@ -21,7 +21,7 @@ module.exports = {
       {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
-      },
+      }
     ]
   },
   plugins: [
@@ -32,6 +32,7 @@ module.exports = {
   ],
   devServer: {
     inline: true,
-    port: 3000
+    port: 3000,
+    historyApiFallback: true
   }
 };

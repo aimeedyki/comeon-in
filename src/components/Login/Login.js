@@ -15,7 +15,7 @@ const Login = () => {
   const [errorMessages, setErrorMessages] = useState({ username: '', password: '' });
   const [serverError, setServerError] = useState('');
   const [loading, setLoading] = useState(false);
-  const history = useHistory();
+  let history = useHistory();
 
   const handleChange = e => {
     const { name, value } = e.target;
