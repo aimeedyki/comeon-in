@@ -60,7 +60,9 @@ const UserInformation = () => {
         phone,
         acceptMarketing
       }).then(response => {
-        setUser(response);
+        const userResponse = response.data.response;
+
+        setUser(userResponse);
         setLoading(false);
       })
         .catch(error => {

@@ -24,13 +24,13 @@ const TermsAndConditions = () => {
     if (!areTermsAccepted) {
       setErrorMessage('You must accept terms to continue');
     } else {
-      updateUser({
-        ...user,
-        acceptTerms: true
-      }).then(response => {
-        setUser(response);
-        setLoading(false);
-      })
+      updateUser({ ...user, acceptTerms: true })
+        .then(response => {
+          const userResponse = response.data.response;
+
+          setUser(userResponse);
+          setLoading(false);
+        })
         .catch(error => {
           setErrorMessage(error);
           setLoading(false);

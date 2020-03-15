@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {
   markUserAsAuthenticated,
   saveAuthenticatedUser,
+  removeUser,
   restoreAuthenticatedSession
 } from '../webStorage';
 
@@ -23,6 +24,8 @@ export const AuthenticationContextProvider = ({ children }) => {
   useEffect(() => {
     if (isAuthenticated) {
       markUserAsAuthenticated();
+    } else {
+      removeUser();
     }
   }, [isAuthenticated]);
 

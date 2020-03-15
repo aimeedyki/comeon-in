@@ -35,8 +35,10 @@ const Login = () => {
 
       authenticate(state.username, state.password)
         .then(response => {
+          const user = response.data.response;
+
           setAuthenticationStatus(true);
-          setUser(response);
+          setUser(user);
           setLoading(false);
         })
         .catch(error => {

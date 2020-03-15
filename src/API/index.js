@@ -17,3 +17,12 @@ export const updateUser = async (params) => {
 
   return data;
 };
+
+export const logoutUser = async (params) => {
+  const data = await client.post(
+  '/logout',
+    params
+  );
+
+  return data;
+};
