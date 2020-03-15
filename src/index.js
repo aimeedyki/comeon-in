@@ -5,10 +5,15 @@ import {
 } from "react-router-dom";
 
 import App from './components/App';
+import {
+  AuthenticationContextProvider
+} from './context/AuthenticationContext';
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <AuthenticationContextProvider>
+      <App />
+    </AuthenticationContextProvider>
   </BrowserRouter>,
   document.querySelector("#root")
 );

@@ -15,7 +15,7 @@ const players = [
     password: "secret",
     showEmailPhoneScreen: true,
     showTermsAndCondition: false,
-    showWelcomeScreen: true
+    showWelcomeScreen: false
   },
   {
     id: 1,
@@ -38,7 +38,7 @@ const players = [
     showTermsAndCondition: false,
     acceptMarketing: true,
     acceptTerms: true,
-    showWelcomeScreen: false
+    showWelcomeScreen: true
   },
   {
     id: 3,

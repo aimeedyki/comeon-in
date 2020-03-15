@@ -1,8 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
 import { Button, Card, CheckInput, Loader, TextField } from '../common';
-import { userDetailsValidator } from '../../helpers.js';
+import { userDetailsValidator } from '../../helpers';
 
 import { updateUser } from '../../API';
 import { AuthenticationContext } from '../../context/AuthenticationContext';
@@ -25,7 +24,6 @@ const UserInformation = () => {
   const [serverError, setServerError] = useState('');
   const [loading, setLoading] = useState(false);
   const [acceptMarketing, setAcceptMarketing] = useState(true);
-  let history = useHistory();
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -64,10 +62,8 @@ const UserInformation = () => {
       }).then(response => {
         setUser(response);
         setLoading(false);
-        history.push('/terms');
       })
         .catch(error => {
-          console.log('error in submit', error);
           setServerError(error);
           setLoading(false);
         });
