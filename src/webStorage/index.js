@@ -21,8 +21,14 @@ const restoreAuthenticatedSession = () => {
   return { isAuthenticated, user };
 };
 
+const removeUser = () => {
+  sessionStorage.removeItem(ITEMS.IS_AUTHENTICATED);
+  sessionStorage.removeItem(ITEMS.AUTHENTICATED_USER);
+};
+
 export {
   markUserAsAuthenticated,
   saveAuthenticatedUser,
+  removeUser,
   restoreAuthenticatedSession
 };

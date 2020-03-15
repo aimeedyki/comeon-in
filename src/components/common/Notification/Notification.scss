@@ -1,0 +1,52 @@
+@import '../theme.scss';
+
+.notification {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  top: 0.6rem;
+  right: 1rem;
+  z-index: 1;
+  width: 16rem;
+  min-height: 4rem;
+  padding: 1rem 2rem;
+  border-radius: 0.3rem;
+  box-shadow: $notification-box-shadow;
+  background-color: map-get($colors, error-background);
+  color: map-get($colors, light);
+
+  &--shown {
+    display: flex;
+  }
+
+  &__message {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.9;
+  }
+
+  &__close-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.3rem;
+    top: 0.7rem;
+    right: 0.7rem;
+    background: none;
+    color: inherit;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.1rem;
+    line-height: 10px;
+    background: map-get($colors, error-dark);
+
+    &__icon {
+      width: 0.7rem;
+    }
+  }
+}

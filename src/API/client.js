@@ -13,7 +13,7 @@ const handleError = error => {
 };
 
 const handleSuccess = response => {
-  return Promise.resolve(response.data.response);
+  return Promise.resolve(response);
 };
 
 const instance = axios.create({

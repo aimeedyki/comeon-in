@@ -8,10 +8,13 @@ import { authenticationValidator } from '../../helpers';
 import './Login.scss';
 
 const Login = () => {
-  const { setAuthenticationStatus, setUser } = useContext(AuthenticationContext);
+  const {
+    setAuthenticationStatus,
+    setNotificationError,
+    setUser
+  } = useContext(AuthenticationContext);
   const [state, setState] = useState({ username: '', password: '' });
   const [errorMessages, setErrorMessages] = useState({ username: '', password: '' });
-  const [serverError, setServerError] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleChange = e => {
@@ -27,7 +30,7 @@ const Login = () => {
     if (isValid) {
       setLoading(true);
       setAuthenticationStatus(false);
-      setServerError('');
+      setNotificationError('');
       setErrorMessages({
         username: '',
         password: ''
@@ -35,12 +38,14 @@ const Login = () => {
 
       authenticate(state.username, state.password)
         .then(response => {
+          const user = response.data.response;
+
           setAuthenticationStatus(true);
-          setUser(response);
+          setUser(user);
           setLoading(false);
         })
         .catch(error => {
-          setServerError(error);
+          setNotificationError(error);
           setLoading(false);
         });
     } else {
@@ -71,10 +76,6 @@ const Login = () => {
             type="password"
             value={state.password}
           />
-          {serverError &&
-            <p className="login__form__error-text">
-              {serverError}
-            </p>}
           <Loader show={loading}>
             <Button type="submit">
               Login

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect} from "react";
+import React, { useContext, useEffect } from "react";
 import {
   Switch,
   Route,
@@ -10,6 +10,7 @@ import Login from './Login';
 import TermsAndConditions from './TermsAndConditions';
 import UserInformation from './UserInformation';
 import Welcome from './Welcome';
+import { Notification } from './common';
 import { AuthenticationContext } from '../context/AuthenticationContext';
 import ProtectedRoute from './ProtectedRoute';
 import { getRoute } from '../helpers';
@@ -31,6 +32,7 @@ const App = () => {
     <div className="app">
       <div className="app__wrapper">
         {isAuthenticated && <Navbar />}
+        <Notification />
         <Switch>
           <ProtectedRoute path={routes.welcome}>
             <Welcome />
