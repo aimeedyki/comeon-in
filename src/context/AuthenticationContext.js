@@ -1,12 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import {
+  markUserAsAuthenticated,
+  saveAuthenticatedUser,
+  restoreAuthenticatedSession
+} from '../webStorage';
 
 export const AuthenticationContext = React.createContext(null);
 
 export const AuthenticationContextProvider = ({ children }) => {
-  const [isAuthenticated, setAuthenticationStatus] = useState(false);
-  const [user, setUser] = useState({});
+  const {
+    isAuthenticated: initialAuthenticationStatus,
+    user: initialUser
+  } = restoreAuthenticatedSession();
+  const [
+    isAuthenticated,
+    setAuthenticationStatus
+  ] = useState(initialAuthenticationStatus);
+  const [user, setUser] = useState(initialUser || {});
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      markUserAsAuthenticated();
+    }
+  }, [isAuthenticated]);
+
+  useEffect(() => {
+    saveAuthenticatedUser(user);
+  }, [user]);
 
   return (
     <AuthenticationContext.Provider
@@ -24,4 +46,4 @@ export const AuthenticationContextProvider = ({ children }) => {
 
 AuthenticationContextProvider.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
