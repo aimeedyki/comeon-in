@@ -1,6 +1,6 @@
 export default {
   login: '/',
-  details: 'details',
+  details: '/details',
   terms: '/terms',
   welcome: '/welcome',
 };
