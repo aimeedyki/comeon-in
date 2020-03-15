@@ -1,11 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
 import { Button, Card, Loader, Logo, TextField } from '../common';
-import { authenticationValidator } from '../../helpers.js';
-
 import { authenticate } from '../../API';
 import { AuthenticationContext } from '../../context/AuthenticationContext';
+import { authenticationValidator } from '../../helpers';
 
 import './Login.scss';
 
@@ -15,7 +13,6 @@ const Login = () => {
   const [errorMessages, setErrorMessages] = useState({ username: '', password: '' });
   const [serverError, setServerError] = useState('');
   const [loading, setLoading] = useState(false);
-  let history = useHistory();
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -41,7 +38,6 @@ const Login = () => {
           setAuthenticationStatus(true);
           setUser(response);
           setLoading(false);
-          history.push('/details');
         })
         .catch(error => {
           setServerError(error);

@@ -1,8 +1,6 @@
 import React, { useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
 import { Button, CheckInput, Loader } from '../common';
-
 import { updateUser } from '../../API';
 import { AuthenticationContext } from '../../context/AuthenticationContext';
 
@@ -13,7 +11,6 @@ const TermsAndConditions = () => {
   const [areTermsAccepted, setTermAccepted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  let history = useHistory();
 
   const handleCheck = () => {
     if (errorMessage) {
@@ -33,7 +30,6 @@ const TermsAndConditions = () => {
       }).then(response => {
         setUser(response);
         setLoading(false);
-        history.push('/welcome');
       })
         .catch(error => {
           setErrorMessage(error);
