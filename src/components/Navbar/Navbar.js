@@ -8,7 +8,11 @@ import { AuthenticationContext } from '../../context/AuthenticationContext';
 import './Navbar.scss';
 
 const Navbar = () => {
-  const { setAuthenticationStatus, user } = useContext(AuthenticationContext);
+  const {
+    setNotificationError,
+    setAuthenticationStatus,
+    user
+  } = useContext(AuthenticationContext);
 
   const handleLogout = () => {
     logoutUser(user)
@@ -17,7 +21,7 @@ const Navbar = () => {
           setAuthenticationStatus(false);
         }
       })
-      .catch(() => { });
+      .catch(error => setNotificationError(error));
   };
 
   return (
@@ -25,7 +29,7 @@ const Navbar = () => {
       <BackButton />
       <Logo variant='dark' />
       <Link
-        className="navbar__logout" 
+        className="navbar__logout"
         to="/"
         onClick={handleLogout}
       >

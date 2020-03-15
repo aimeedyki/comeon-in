@@ -20,6 +20,7 @@ export const AuthenticationContextProvider = ({ children }) => {
     setAuthenticationStatus
   ] = useState(initialAuthenticationStatus);
   const [user, setUser] = useState(initialUser || {});
+  const [notificationError, setNotificationError] = useState('');
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -37,6 +38,8 @@ export const AuthenticationContextProvider = ({ children }) => {
     <AuthenticationContext.Provider
       value={{
         isAuthenticated,
+        notificationError,
+        setNotificationError,
         setAuthenticationStatus,
         setUser,
         user

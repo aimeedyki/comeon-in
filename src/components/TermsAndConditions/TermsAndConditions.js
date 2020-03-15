@@ -7,22 +7,21 @@ import { AuthenticationContext } from '../../context/AuthenticationContext';
 import './TermsAndConditions.scss';
 
 const TermsAndConditions = () => {
-  const { setUser, user } = useContext(AuthenticationContext);
+  const {
+    setNotificationError,
+    setUser,
+    user
+  } = useContext(AuthenticationContext);
   const [areTermsAccepted, setTermAccepted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
 
   const handleCheck = () => {
-    if (errorMessage) {
-      setErrorMessage('');
-    }
-
     setTermAccepted(!areTermsAccepted);
   };
 
   const handleClick = () => {
     if (!areTermsAccepted) {
-      setErrorMessage('You must accept terms to continue');
+      setNotificationError('You must accept terms to continue');
     } else {
       updateUser({ ...user, acceptTerms: true })
         .then(response => {
@@ -32,7 +31,7 @@ const TermsAndConditions = () => {
           setLoading(false);
         })
         .catch(error => {
-          setErrorMessage(error);
+          setNotificationError(error);
           setLoading(false);
         });
     }
@@ -67,10 +66,6 @@ const TermsAndConditions = () => {
         onInputChange={handleCheck}
       />
       <div className="terms__footer">
-        {errorMessage &&
-          <p className="terms__error-message">
-            {errorMessage}
-          </p>}
         <Loader show={loading}>
           <Button
             className="terms__footer__button"

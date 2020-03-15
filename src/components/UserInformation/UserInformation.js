@@ -10,7 +10,11 @@ import { AuthenticationContext } from '../../context/AuthenticationContext';
 import './UserInformation.scss';
 
 const UserInformation = () => {
-  const { setUser, user } = useContext(AuthenticationContext);
+  const {
+    setNotificationError,
+    setUser,
+    user
+  } = useContext(AuthenticationContext);
   const [state, setState] = useState({
     email: '',
     countryCode: '',
@@ -21,7 +25,6 @@ const UserInformation = () => {
     countryCode: '',
     mobileNumber: ''
   });
-  const [serverError, setServerError] = useState('');
   const [loading, setLoading] = useState(false);
   const [acceptMarketing, setAcceptMarketing] = useState(true);
 
@@ -41,7 +44,6 @@ const UserInformation = () => {
 
     if (isValid) {
       setLoading(true);
-      setServerError('');
       setErrorMessages({
         email: '',
         countryCode: '',
@@ -66,7 +68,7 @@ const UserInformation = () => {
         setLoading(false);
       })
         .catch(error => {
-          setServerError(error);
+          setNotificationError(error);
           setLoading(false);
         });
     } else {
@@ -127,10 +129,6 @@ const UserInformation = () => {
             label="I do not want to receive electronic marketing material"
             onInputChange={handleCheck}
           />
-          {serverError &&
-            <p className="UserInformation__form__error-text">
-              {serverError}
-            </p>}
           <Loader show={loading}>
             <Button type="submit">
               Continue
