@@ -6,26 +6,20 @@ import './ErrorBoundary.scss';
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { error: null, errorInfo: null };
+    this.state = { error: null };
   }
   
-  componentDidCatch(error, errorInfo) {
+  componentDidCatch(error) {
     this.setState({
-      error: error,
-      errorInfo: errorInfo
+      error: error
     });
   }
   
   render() {
-    if (this.state.errorInfo) {
+    if (this.state.error) {
       return (
         <div className="error-boundary">
-          <h2>Something went wrong.</h2>
-          <details style={{ whiteSpace: 'pre-wrap' }}>
-            {this.state.error && this.state.error.toString()}
-            <br />
-            {this.state.errorInfo.componentStack}
-          </details>
+          <h2>Something went wrong. Please try reloading.</h2>
         </div>
       );
     }

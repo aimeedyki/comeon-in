@@ -9,8 +9,11 @@ const Login = React.lazy(() => import('./Login'));
 const TermsAndConditions = React.lazy(() => import('./TermsAndConditions'));
 const UserInformation = React.lazy(() => import('./UserInformation'));
 const Welcome = React.lazy(() => import('./Welcome'));
-import Navbar from './Navbar';
-import { Loader, Notification } from './common';
+const Navbar = React.lazy(() => import('./Navbar'));
+const Notification = React.lazy(
+  () => import('./common').then(module => ({ default: module.Notification }))
+);
+import { Loader } from './common';
 import ErrorBoundary from './ErrorBoundary';
 import { AuthenticationContext } from '../context/AuthenticationContext';
 import ProtectedRoute from './ProtectedRoute';
@@ -33,9 +36,9 @@ const App = () => {
     <div className="app">
       <div className="app__wrapper">
         <ErrorBoundary>
-          {isAuthenticated && <Navbar />}
-          <Notification />
           <Suspense fallback={<Loader show />}>
+            {isAuthenticated && <Navbar />}
+            <Notification />
             <Switch>
               <ProtectedRoute path={routes.welcome}>
                 <Welcome />

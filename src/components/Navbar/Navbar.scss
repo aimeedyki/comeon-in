@@ -9,15 +9,10 @@
   position: fixed;
   top: 0;
 
-  &__logo {
-    font-size: 1rem;
-  }
-
   &__logout {
     margin-right: 1rem;
     color: map-get($colors, dark-background);
-    text-decoration: none;
-    
+    text-decoration: none;    
 
     &:hover {
       color: map-get($colors, light);
