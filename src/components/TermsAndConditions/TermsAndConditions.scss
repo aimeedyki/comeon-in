@@ -7,7 +7,7 @@
   align-items: center;
   overflow: auto;
   overflow-y:scroll; 
-  min-height: auto;
+  min-height: 100%;
   background-color: map-get($colors, dark);
   color: map-get($colors, light);
   margin-top: 4.5rem;
@@ -68,7 +68,8 @@
   }
 
   @media screen and (min-width: 768px){
-    padding: 1rem 9rem;
+    padding: 1rem 4rem 0;
+    width: 70%;
     font-size: 0.9rem;
   }
 }

@@ -26,15 +26,16 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="navbar__left-item" />
-      <Logo className="navbar__logo" variant='dark' />
-      <Link
-        className="navbar__logout"
-        to="/"
-        onClick={handleLogout}
-      >
-        Log out
-    </Link>
+      <div className="navbar__wrapper">
+        <Logo className="navbar__logo" variant='dark' />
+        <Link
+          className="navbar__logout"
+          to="/"
+          onClick={handleLogout}
+        >
+          Log out
+        </Link>
+      </div>
     </nav>
   );
 };
