@@ -64,7 +64,7 @@ const UserInformation = () => {
       }).then(response => {
         const userResponse = response.data.response;
 
-        setUser(userResponse);
+        setUser({...user, ...userResponse});
         setLoading(false);
       })
         .catch(error => {

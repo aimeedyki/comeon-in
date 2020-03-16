@@ -9,15 +9,24 @@
   position: fixed;
   top: 0;
 
+  &__left-item {
+    width: 5.5rem;
+
+    @media screen and (max-width: 600px){
+      width: 0;
+    }
+  }
+
   &__logo {
-    font-size: 1rem;
+    @media screen and (max-width: 600px){
+      margin-left: -3.5rem;
+    }
   }
 
   &__logout {
     margin-right: 1rem;
     color: map-get($colors, dark-background);
-    text-decoration: none;
-    
+    text-decoration: none;    
 
     &:hover {
       color: map-get($colors, light);

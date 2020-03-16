@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 
-import { BackButton, Logo } from '../common';
+import { Logo } from '../common';
 import { logoutUser } from '../../API';
 import { AuthenticationContext } from '../../context/AuthenticationContext';
 
@@ -26,8 +26,8 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <BackButton />
-      <Logo variant='dark' />
+      <div className="navbar__left-item" />
+      <Logo className="navbar__logo" variant='dark' />
       <Link
         className="navbar__logout"
         to="/"
