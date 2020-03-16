@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import './Loader.scss';
@@ -7,7 +7,7 @@ const Loader = ({ children, show }) => show ?
   (<div className="loader">
     <div className="loader__spinner"></div>
   </div>) : 
-  <Fragment>{children}</Fragment>;
+  <>{children}</>;
 
 Loader.propTypes = {
   children: PropTypes.node,

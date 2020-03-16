@@ -11,7 +11,8 @@ const Login = () => {
   const {
     setAuthenticationStatus,
     setNotificationError,
-    setUser
+    setUser,
+    user
   } = useContext(AuthenticationContext);
   const [state, setState] = useState({ username: '', password: '' });
   const [errorMessages, setErrorMessages] = useState({ username: '', password: '' });
@@ -38,10 +39,9 @@ const Login = () => {
 
       authenticate(state.username, state.password)
         .then(response => {
-          const user = response.data.response;
-
+          const userResponse = response.data.response;
           setAuthenticationStatus(true);
-          setUser(user);
+          setUser({...user, ...userResponse});
           setLoading(false);
         })
         .catch(error => {
