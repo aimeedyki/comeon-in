@@ -55,7 +55,7 @@ const Login = () => {
 
   return (
     <Card>
-      <div className="login">
+      <div className="login" data-testid="login">
         <Logo />
         <form className="login__form" onSubmit={handleSubmit}>
           <TextField

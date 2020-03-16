@@ -78,7 +78,7 @@ const UserInformation = () => {
 
   return (
     <Card>
-      <div className="user-information">
+      <div className="user-information" data-testid="user-information">
         <h5 className="user-information__heading">Share your details</h5>
         <img
           className="user-information__icon"

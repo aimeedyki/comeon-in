@@ -5,7 +5,7 @@ import './Welcome.scss';
 
 const Welcome = () => (
   <Card>
-    <div className="welcome">
+    <div className="welcome" data-testid="welcome">
       <div className="welcome__greeting">
         <img
           className="welcome__greeting__icon"

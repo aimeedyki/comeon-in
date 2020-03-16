@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './Loader.scss';
 
 const Loader = ({ children, show }) => show ?
-  (<div className="loader">
+  (<div className="loader" data-testid="loader">
     <div className="loader__spinner"></div>
   </div>) : 
   <>{children}</>;

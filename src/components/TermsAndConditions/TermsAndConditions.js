@@ -38,7 +38,7 @@ const TermsAndConditions = () => {
   };
 
   return (
-    <div className="terms">
+    <div className="terms" data-testid="terms">
       <img
         className="terms__icon"
         src="https://res.cloudinary.com/ddxsazo2k/image/upload/v1584201435/Term_wp07xo.svg"
