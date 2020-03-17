@@ -14,6 +14,8 @@ import { authenticationValidator } from '../../helpers';
 
 import './Login.scss';
 
+const initialState = { username: '', password: '' };
+
 const Login = () => {
   const {
     setAuthenticationStatus,
@@ -21,7 +23,7 @@ const Login = () => {
     setUser,
     user
   } = useContext(AuthenticationContext);
-  const [state, setState] = useState({ username: '', password: '' });
+  const [state, setState] = useState(initialState);
   const [errorMessages, setErrorMessages] = useState({ username: '', password: '' });
   const [loading, setLoading] = useState(false);
 
@@ -47,6 +49,8 @@ const Login = () => {
       authenticate(state.username, state.password)
         .then(response => {
           const userResponse = response.data.response;
+
+          setState(initialState);
           setAuthenticationStatus(true);
           setUser({ ...user, ...userResponse });
           setLoading(false);

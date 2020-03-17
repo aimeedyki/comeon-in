@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { render, waitFor, cleanup } from '@testing-library/react';
 
-import App from "./App";
+import App from './App';
 import { AuthenticationContext } from '../context/AuthenticationContext';
 import {
   noUser,

@@ -23,6 +23,11 @@ You can get the app running locally in the following way:
 
 The app will be running at `http://localhost:3000`.
 
+#### Running the tests
+
+- The tests were written using Jest and React Testing Library.
+- To run `$ npm test` or `$ yarn test`  from the root folder.
+
 ## Technology Stack
 
 - [React](https://www.npmjs.com/package/react) : A Javascript library for building user interfaces.
