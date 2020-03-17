@@ -45,6 +45,13 @@
     }
   }
 
+  &__input-icon {
+    position: absolute;
+    right: 0;
+    top: 2.5rem;
+    width: 1.5rem;
+  }
+
   &__error-description {
     position: absolute;
     bottom: -1.5rem;

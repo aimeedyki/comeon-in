@@ -3,6 +3,7 @@ import Card from './Card';
 import CheckInput from './CheckInput';
 import Loader from './Loader';
 import Logo from './Logo';
+import PasswordTextField from './PasswordTextField';
 import Notification from './Notification';
 import TextField from './TextField';
 
@@ -12,6 +13,7 @@ export {
   CheckInput,
   Loader,
   Logo,
+  PasswordTextField,
   Notification,
   TextField
 };

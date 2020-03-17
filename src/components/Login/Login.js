@@ -1,6 +1,13 @@
 import React, { useContext, useState } from 'react';
 
-import { Button, Card, Loader, Logo, TextField } from '../common';
+import {
+  Button,
+  Card,
+  Loader,
+  Logo,
+  PasswordTextField,
+  TextField
+} from '../common';
 import { authenticate } from '../../API';
 import { AuthenticationContext } from '../../context/AuthenticationContext';
 import { authenticationValidator } from '../../helpers';
@@ -41,7 +48,7 @@ const Login = () => {
         .then(response => {
           const userResponse = response.data.response;
           setAuthenticationStatus(true);
-          setUser({...user, ...userResponse});
+          setUser({ ...user, ...userResponse });
           setLoading(false);
         })
         .catch(error => {
@@ -67,13 +74,12 @@ const Login = () => {
             type="text"
             value={state.username}
           />
-          <TextField
+          <PasswordTextField
             error={errorMessages.password}
             id="password"
             label="Password"
             name="password"
             onChange={handleChange}
-            type="password"
             value={state.password}
           />
           <Loader show={loading}>
