@@ -62,6 +62,7 @@ const TermsAndConditions = () => {
       <CheckInput
         checked={areTermsAccepted}
         className="terms__check-input"
+        id="terms"
         label="I accept the terms and conditions"
         onInputChange={handleCheck}
       />

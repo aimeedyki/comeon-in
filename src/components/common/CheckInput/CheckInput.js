@@ -7,17 +7,22 @@ import './CheckInput.scss';
 const CheckInput = ({
   checked,
   className,
+  id,
   label,
   onInputChange,
   ...restProps
 }) => (
-    <label className={classNames(className, 'check-input')}>
+    <label
+      htmlFor={id}
+      className={classNames(className, 'check-input')}
+    >
       <input
         className="checkbox"
-        name="isGoing"
-        type="checkbox"
         checked={checked}
+        id={id}
+        name="isGoing"
         onChange={onInputChange}
+        type="checkbox"
         {...restProps}
       />
       {label}
@@ -27,6 +32,7 @@ const CheckInput = ({
 CheckInput.propTypes = {
   checked: PropTypes.bool.isRequired,
   className: PropTypes.string,
+  id: PropTypes.string,
   label: PropTypes.string.isRequired,
   onInputChange: PropTypes.func.isRequired
 };

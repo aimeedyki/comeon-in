@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: map-get($colors, light);
+  background-color: map-get($colors, dark-background);
   width: 100%;
   position: fixed;
   top: 0;
@@ -29,11 +29,11 @@
 
   &__logout {
     margin-right: 1rem;
-    color: map-get($colors, dark-background);
+    color: map-get($colors, light);
     text-decoration: none;    
 
     &:hover {
-      color: map-get($colors, light);
+      color: map-get($colors, dark-background);
       background-color: map-get($colors, primary);
     }
   }

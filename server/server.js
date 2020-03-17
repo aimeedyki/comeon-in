@@ -153,7 +153,10 @@ server.use((req, res, next) => {
       } else {
         res.status(400).json({
           status: "FAILURE",
-          error: "Username do not match!"
+          response:{
+            errorKey: "INVALID__CREDENTIALS",
+            errorDescription: "Username do not match!"
+          }
         });
       }
     }

@@ -29,6 +29,13 @@ const Login = () => {
 
   const handleChange = e => {
     const { name, value } = e.target;
+    
+    if (errorMessages[name]) {
+      setErrorMessages({
+        ...errorMessages,
+        [name]: ''
+      });
+    }
 
     setState({ ...state, [name]: value });
   };

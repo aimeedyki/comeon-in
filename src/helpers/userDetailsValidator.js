@@ -15,7 +15,7 @@ const userDetailsValidator = (formDetails) => {
     !validator.isNumeric(formDetails.mobileNumber,{no_symbols: true}) ||
     !validator.isLength(formDetails.mobileNumber, { min: 9 })
     ) {
-    error.mobileNumber = 'must not be less then 9 digits';
+    error.mobileNumber = 'Should not be less than 9 digits';
   }
 
   if (Object.keys(error).length !== 0) {

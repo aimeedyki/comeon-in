@@ -31,6 +31,13 @@ const UserInformation = () => {
   const handleChange = e => {
     const { name, value } = e.target;
 
+    if (errorMessages[name]) {
+      setErrorMessages({
+        ...errorMessages,
+        [name]: ''
+      });
+    }
+
     setState({ ...state, [name]: value });
   };
 
@@ -64,7 +71,7 @@ const UserInformation = () => {
       }).then(response => {
         const userResponse = response.data.response;
 
-        setUser({...user, ...userResponse});
+        setUser({ ...user, ...userResponse });
         setLoading(false);
       })
         .catch(error => {

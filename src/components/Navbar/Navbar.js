@@ -21,7 +21,13 @@ const Navbar = () => {
           setAuthenticationStatus(false);
         }
       })
-      .catch(error => setNotificationError(error));
+      .catch(error => {
+        setNotificationError(error);
+
+        if (error === 'Username do not match!') {
+          setAuthenticationStatus(false);
+        }
+      });
   };
 
   return (
