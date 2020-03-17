@@ -8,8 +8,10 @@ const TextField = ({
   className,
   error,
   id,
+  inputIcon,
   label,
   onChange,
+  onInputIconClick,
   placeholder,
   type,
   value,
@@ -34,6 +36,14 @@ const TextField = ({
           value={value}
           {...restProps}
         />
+        {inputIcon && (
+          <img
+            src={inputIcon}
+            alt="input icon"
+            className="text-field__input-icon"
+            onClick={onInputIconClick}
+          />
+        )}
         <span className="text-field__border" />
       </span>
       <span
@@ -50,8 +60,10 @@ TextField.propTypes = {
   className: PropTypes.string,
   error: PropTypes.string,
   id: PropTypes.string.isRequired,
+  inputIcon: PropTypes.string,
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  onInputIconClick: PropTypes.func,
   placeholder: PropTypes.string,
   type: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired

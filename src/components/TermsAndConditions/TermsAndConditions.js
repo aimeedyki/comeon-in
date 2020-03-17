@@ -38,7 +38,7 @@ const TermsAndConditions = () => {
   };
 
   return (
-    <div className="terms">
+    <div className="terms" data-testid="terms">
       <img
         className="terms__icon"
         src="https://res.cloudinary.com/ddxsazo2k/image/upload/v1584201435/Term_wp07xo.svg"
@@ -62,6 +62,7 @@ const TermsAndConditions = () => {
       <CheckInput
         checked={areTermsAccepted}
         className="terms__check-input"
+        id="terms"
         label="I accept the terms and conditions"
         onInputChange={handleCheck}
       />

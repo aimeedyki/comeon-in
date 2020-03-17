@@ -2,34 +2,38 @@
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  background-color: map-get($colors, light);
+  background-color: map-get($colors, dark-background);
   width: 100%;
   position: fixed;
   top: 0;
 
-  &__left-item {
-    width: 5.5rem;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 
-    @media screen and (max-width: 600px){
-      width: 0;
+    @media screen and (min-width: 600px){
+      width: 70%
     }
   }
 
   &__logo {
     @media screen and (max-width: 600px){
-      margin-left: -3.5rem;
+      font-size: 1.5rem;
+      margin-left: 1rem;
     }
   }
 
   &__logout {
     margin-right: 1rem;
-    color: map-get($colors, dark-background);
+    color: map-get($colors, light);
     text-decoration: none;    
 
     &:hover {
-      color: map-get($colors, light);
+      color: map-get($colors, dark-background);
       background-color: map-get($colors, primary);
     }
   }

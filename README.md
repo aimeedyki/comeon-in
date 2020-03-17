@@ -19,9 +19,14 @@ You can get the app running locally in the following way:
 - Change into the directory `$ cd comeon-in`.
 - Use `$ npm install` or `$ yarn` to install all required dependencies.
 - Start app with `$ npm start` or `$ yarn start`.
-- You can run a production build with `$ npm run build`.
+- You can create a production build with `$ npm run build`.
 
 The app will be running at `http://localhost:3000`.
+
+#### Running the tests
+
+- The tests were written using Jest and React Testing Library.
+- To run `$ npm test` or `$ yarn test`  from the root folder.
 
 ## Technology Stack
 

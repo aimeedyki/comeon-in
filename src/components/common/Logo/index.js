@@ -4,12 +4,11 @@ import PropTypes from 'prop-types';
 
 import './Logo.scss';
 
-const Logo = ({ className, variant='light' }) => (
+const Logo = ({ className }) => (
   <h1
     className={classNames(
       className,
       'logo',
-      `logo--${variant}`
     )}
   >
     Comeon in
@@ -17,8 +16,7 @@ const Logo = ({ className, variant='light' }) => (
 );
 
 Logo.propTypes = {
-  className: PropTypes.string,
-  variant: PropTypes.string
+  className: PropTypes.string
 };
 
 export default Logo;

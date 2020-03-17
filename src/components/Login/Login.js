@@ -1,11 +1,20 @@
 import React, { useContext, useState } from 'react';
 
-import { Button, Card, Loader, Logo, TextField } from '../common';
+import {
+  Button,
+  Card,
+  Loader,
+  Logo,
+  PasswordTextField,
+  TextField
+} from '../common';
 import { authenticate } from '../../API';
 import { AuthenticationContext } from '../../context/AuthenticationContext';
 import { authenticationValidator } from '../../helpers';
 
 import './Login.scss';
+
+const initialState = { username: '', password: '' };
 
 const Login = () => {
   const {
@@ -14,12 +23,19 @@ const Login = () => {
     setUser,
     user
   } = useContext(AuthenticationContext);
-  const [state, setState] = useState({ username: '', password: '' });
+  const [state, setState] = useState(initialState);
   const [errorMessages, setErrorMessages] = useState({ username: '', password: '' });
   const [loading, setLoading] = useState(false);
 
   const handleChange = e => {
     const { name, value } = e.target;
+    
+    if (errorMessages[name]) {
+      setErrorMessages({
+        ...errorMessages,
+        [name]: ''
+      });
+    }
 
     setState({ ...state, [name]: value });
   };
@@ -40,8 +56,10 @@ const Login = () => {
       authenticate(state.username, state.password)
         .then(response => {
           const userResponse = response.data.response;
+
+          setState(initialState);
           setAuthenticationStatus(true);
-          setUser({...user, ...userResponse});
+          setUser({ ...user, ...userResponse });
           setLoading(false);
         })
         .catch(error => {
@@ -55,7 +73,7 @@ const Login = () => {
 
   return (
     <Card>
-      <div className="login">
+      <div className="login" data-testid="login">
         <Logo />
         <form className="login__form" onSubmit={handleSubmit}>
           <TextField
@@ -67,13 +85,12 @@ const Login = () => {
             type="text"
             value={state.username}
           />
-          <TextField
+          <PasswordTextField
             error={errorMessages.password}
             id="password"
             label="Password"
             name="password"
             onChange={handleChange}
-            type="password"
             value={state.password}
           />
           <Loader show={loading}>

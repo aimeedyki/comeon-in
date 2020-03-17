@@ -33,7 +33,7 @@ const App = () => {
   }, [user, history]);
 
   return (
-    <div className="app">
+    <div className="app" data-testid="app">
       <div className="app__wrapper">
         <ErrorBoundary>
           <Suspense fallback={<Loader show />}>
