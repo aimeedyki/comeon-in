@@ -3,27 +3,48 @@ const ITEMS = {
   AUTHENTICATED_USER: 'user'
 };
 
-const checkIfAuthenticated = () =>
-  localStorage.getItem(ITEMS.IS_AUTHENTICATED) === 'true';
+const checkIfAuthenticated = () => {
+  try {
+    return localStorage.getItem(ITEMS.IS_AUTHENTICATED) === 'true';
+  } catch (error) {
+    return;
+  }
+};
 
 const markUserAsAuthenticated = () => {
-  localStorage.setItem(ITEMS.IS_AUTHENTICATED, 'true');
+  try {
+    localStorage.setItem(ITEMS.IS_AUTHENTICATED, 'true');
+  } catch (error) {
+    return;
+  }
 };
 
 const saveAuthenticatedUser = user => {
-  localStorage.setItem(ITEMS.AUTHENTICATED_USER, JSON.stringify(user));
+  try {
+    localStorage.setItem(ITEMS.AUTHENTICATED_USER, JSON.stringify(user));
+  } catch (error) {
+    return;
+  }
 };
 
 const restoreAuthenticatedSession = () => {
-  const isAuthenticated = checkIfAuthenticated();
-  const user = JSON.parse(localStorage.getItem(ITEMS.AUTHENTICATED_USER));
+  try {
+    const isAuthenticated = checkIfAuthenticated();
+    const user = JSON.parse(localStorage.getItem(ITEMS.AUTHENTICATED_USER));
 
-  return { isAuthenticated, user };
+    return { isAuthenticated, user };
+  } catch (error) {
+    return;
+  }
 };
 
 const removeUser = () => {
-  localStorage.removeItem(ITEMS.IS_AUTHENTICATED);
-  localStorage.removeItem(ITEMS.AUTHENTICATED_USER);
+  try {
+    localStorage.removeItem(ITEMS.IS_AUTHENTICATED);
+    localStorage.removeItem(ITEMS.AUTHENTICATED_USER);
+  } catch (error) {
+    return;
+  }
 };
 
 export {

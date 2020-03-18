@@ -21,7 +21,7 @@
     animation: spin 0.7s infinite linear;
     background: linear-gradient(
       to right,
-      map-get($colors, dark-background) 10%,
+      map-get($colors, dark-700) 10%,
       map-get($colors, primary) 42%
     );
     border-radius: 50%;
@@ -34,7 +34,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      background: map-get($colors, dark-background);
+      background: map-get($colors, dark-700);
       border-radius: 100% 0 0 0;
       content: '';
       height: 50%;

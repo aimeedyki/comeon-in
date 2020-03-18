@@ -13,7 +13,7 @@
   padding: 1rem 2rem;
   border-radius: 0.3rem;
   box-shadow: $notification-box-shadow;
-  background-color: map-get($colors, error-background);
+  background-color: map-get($colors, error-300);
   color: map-get($colors, light);
 
   &--shown {
@@ -43,7 +43,7 @@
     border: none;
     border-radius: 0.1rem;
     line-height: 10px;
-    background: map-get($colors, error-dark);
+    background: map-get($colors, error-900);
 
     &__icon {
       width: 0.7rem;

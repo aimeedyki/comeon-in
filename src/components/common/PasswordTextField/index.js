@@ -1,3 +1,1 @@
-import PasswordTextField from './PasswordTextField';
-
-export default PasswordTextField;
+export { default } from './PasswordTextField';

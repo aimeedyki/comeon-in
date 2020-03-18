@@ -1,3 +1,1 @@
-import UserInformation from './UserInformation';
-
-export default UserInformation;
+export { default } from './UserInformation';

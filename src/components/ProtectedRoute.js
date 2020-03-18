@@ -8,14 +8,13 @@ const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useContext(AuthenticationContext);
 
   return (
-      <Route
-        render={() =>
-          isAuthenticated ?
-            children : (
-              <Redirect to= "/"/>
-            )
-        }
-      />
+    <Route
+      render={() =>
+        isAuthenticated ?
+          children :
+          (<Redirect to="/" />)
+      }
+    />
   );
 };
 

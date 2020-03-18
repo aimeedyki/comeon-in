@@ -3,8 +3,8 @@ import Card from './Card';
 import CheckInput from './CheckInput';
 import Loader from './Loader';
 import Logo from './Logo';
-import PasswordTextField from './PasswordTextField';
 import Notification from './Notification';
+import PasswordTextField from './PasswordTextField';
 import TextField from './TextField';
 
 export {
