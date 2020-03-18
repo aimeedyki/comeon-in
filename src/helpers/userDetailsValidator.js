@@ -11,6 +11,9 @@ const userDetailsValidator = (formDetails) => {
     error.countryCode = 'e.g +47';
   }
 
+
+  /* This validation assumes that mobile numbers will not be 
+   less than 9 digits */
   if (
     !validator.isNumeric(formDetails.mobileNumber,{no_symbols: true}) ||
     !validator.isLength(formDetails.mobileNumber, { min: 9 })

@@ -101,7 +101,7 @@ const playerAttributes = (req) => {
       showEmailPhoneScreen: false
     };
   }
-  
+
   if (acceptTerms) {
     overrides = {
       showTermsAndCondition: false,
@@ -120,9 +120,9 @@ const updatePlayer = (req, res) => {
     let newPlayer = { ...players[playerIndex], ...req.body };
     // Adding the override to let user navigate further
     const overrides = playerAttributes(req);
-    newPlayer = {...newPlayer, ...overrides};
+    newPlayer = { ...newPlayer, ...overrides };
     players[playerIndex] = newPlayer;
-    const response = {...newPlayer};
+    const response = { ...newPlayer };
     delete response.password;
     res.status(200).json({
       status: "SUCCESS",
@@ -153,7 +153,7 @@ server.use((req, res, next) => {
       } else {
         res.status(400).json({
           status: "FAILURE",
-          response:{
+          response: {
             errorKey: "INVALID__CREDENTIALS",
             errorDescription: "Username do not match!"
           }
@@ -170,6 +170,6 @@ server.use((req, res, next) => {
   next();
 });
 
-server.listen(3001, () => {
-  console.log("JSON Server is running");
+server.listen(3003, () => {
+  console.log("JSON Server is running at 3003");
 });
