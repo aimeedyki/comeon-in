@@ -3,6 +3,11 @@ A registration and login flow.
 
 The application sets up the authentication process for a game. On successful authentication, the user is navigated to the appropraite screen based on their stage in the authentication flow.
 
+<p float="left">
+  <img alt="mobile view"  src="/screenshots/mobile.png" width="400" />
+  <img alt="laptop view"  src="screenshots/laptop.png" width="400" /> 
+</p>
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.

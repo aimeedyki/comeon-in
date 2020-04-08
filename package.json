@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aimeedyki/comeon-in.git"
+    "url": "git+https://github.com/aimeedyki/auth-flow.git"
   },
   "author": "Amarachi Akuwudike",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/aimeedyki/comeon-in/issues"
+    "url": "https://github.com/aimeedyki/auth-flow/issues"
   },
-  "homepage": "https://github.com/aimeedyki/comeon-in#readme",
+  "homepage": "https://github.com/aimeedyki/auth-flow#readme",
   "devDependencies": {
     "@babel/core": "^7.8.7",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
