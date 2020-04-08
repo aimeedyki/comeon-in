@@ -1,7 +1,7 @@
 import client from './client';
 
-export const authenticate = async (username, password) => {
-  const data = await client.post(
+export const authenticate = (username, password) => {
+  const data = client.post(
     '/authenticate',
     { username, password }
   );
@@ -9,20 +9,14 @@ export const authenticate = async (username, password) => {
   return data;
 };
 
-export const updateUser = async (params) => {
-  const data = await client.put(
-  '/player',
-    params
-  );
+export const updateUser = (params) => {
+  const data = client.put('/player', params);
 
   return data;
 };
 
-export const logoutUser = async (params) => {
-  const data = await client.post(
-  '/logout',
-    params
-  );
+export const logoutUser = (params) => {
+  const data = client.post('/logout', params);
 
   return data;
 };
